@@ -15,6 +15,7 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+
 - script: |
     npm install
     npm run build
@@ -32,3 +33,7 @@ steps:
       -Dsonar.host.url=https://sonarcloud.io \
       -Dsonar.login=1644a044754ef09d676277bde6b30af39693a62b
   displayName: 'install scanner'
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
