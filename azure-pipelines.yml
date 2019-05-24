@@ -17,11 +17,6 @@ steps:
     scannerMode: 'CLI'
     configMode: 'file'
 
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
 - script: |
     sonar-scanner \
       -Dsonar.projectKey=MikeO7_pipelines-javascript \
@@ -30,8 +25,3 @@ steps:
       -Dsonar.host.url=https://sonarcloud.io \
       -Dsonar.login=364ad397489546a6514e674c86f3d3aa94b9720e
   displayName: 'Sonar Scanner'
-
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
